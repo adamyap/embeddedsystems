@@ -1,0 +1,48 @@
+Luhn Algorithm implementation:
+
+Basics:
+
+Multiply every other digit by 2, starting with numbers second to last digit
+Sum all digits
+Modulo 10
+
+
+Pseudocode from wikipedia:
+function isValid(cardNumber[1..length])
+    sum := 0
+    parity := length mod 2
+    for i from 1 to length do
+        if i mod 2 != parity then
+            sum := sum + cardNumber[i]
+        elseif cardNumber[i] > 4 then
+            sum := sum + 2 * cardNumber[i] - 9
+        else
+            sum := sum + 2 * cardNumber[i]
+        end if
+    end for
+    return cardNumber[length] == (10 - (sum mod 10))
+end function
+
+
+Code Planning:
+int Num = 0
+int numDigit = 0
+int digitProduct = 0
+int digitSum = 0
+int numSum = 0
+
+get Num 
+
+Num[2n] * 2 /*do this in a loop, starting at n=0*/
+
+if any variable in Number[] > 9, sum its digits so that it is less than 10
+
+add all list variables together, sum is called numSum (possibly seperate before previous line)
+
+numberModulo = numSum % 10
+
+if numberModulo = 0
+	yes
+else 
+	no
+
