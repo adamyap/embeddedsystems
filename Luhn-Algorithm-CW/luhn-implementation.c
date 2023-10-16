@@ -4,7 +4,7 @@ int main(void)
 	int Num = 0;
 	int numDigit = 0;
 	int numSum = 0;
-	numCheck = -1;
+	int numCheck = -1;
 	int numStep = 0;
 
 	/*Get Num from UART*/
