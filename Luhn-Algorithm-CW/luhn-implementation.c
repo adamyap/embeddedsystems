@@ -11,10 +11,12 @@ int main(void)
 	Num = //idk how to do this yet
 
 	/*Protection*/
-	if Num > 9999999999999999 or Num < 000000000000000
+	if (Num > 9999999999999999 or Num < 000000000000000)
+	{
 		system_printf("ERROR - invalid number\n");
-
+	}
 	else
+	{
 
 		/*Carry out Luhn Algorithm*/
 		
@@ -44,6 +46,8 @@ int main(void)
 
 		}
 
+	}
+
 	/*Check if number is valid*/
 	/*For valid number*/
 	if (numCheck == 0)
@@ -54,7 +58,12 @@ int main(void)
 	else if (numCheck < 0)
 	{
 		system_printf("ERROR - failure in checking number\n");
+	}
 	/*For invalid number*/
 	else
 	{
 		system_printf("Number is INVALID\n");
+	}
+	
+}
+
