@@ -38,11 +38,11 @@ int main(void)
 				}
 			}
 
-		/*Update sum*/
-		numSum = numSum + numDigit;
+			/*Update sum*/
+			numSum = numSum + numDigit;
 
-		/*Loop through digits*/
-		Num = (Num - numDigit) / 10;
+			/*Loop through digits*/
+			Num = (Num - numDigit) / 10;
 
 		}
 
