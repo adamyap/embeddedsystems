@@ -10,75 +10,50 @@
 #define ALGORITHM_FAILURE -6
 
 /* Luhn algorithm function if input is a string */
-int luhn_string (char string[])
+int luhn_string (int number[])
 {
     int length;
     int numDigit = 0;
-    int numSum = -10;
+    int numSum = 0;
     //int numStep = 0;
+    /* First character is string[0] */
+    /* Last character is string[length - 1] */
 
-    /* Get string length */
-    length = strlen (string);
-
-    /* If string is not 16 digits, return error */
-    if (length != 16)
+    /* Deal with each digit individually */
+    volatile int i;
+    for (i=15;i >= 0; i--)
     {
-        return LENGTH_ERROR;
-    }
+        /* Convert digit to integer */
+        numDigit = number [i];
 
-    else
-    {
+        /* Deal with the digit here */
 
-        /* First character is string[0] */
-        /* Last character is string[length - 1] */
-
-        /* Deal with each digit individually */
-        volatile int i;
-        for (i=length;i > 0; i--)
+        /* Double every other digit */
+        if (i % 2 == 0)
         {
-            /* Is the digit a number? */
-            if (isdigit (string [i]))
+            numDigit = numDigit * 2;
+
+            /* If doubled digit is ten or higher, sum its digits */
+            if (numDigit > 9)
             {
-                /* Convert digit to integer */
-                numDigit = atoi (string [i]);
-
-                /* Deal with the digit here */
-
-                /* Double every other digit */
-                if (i % 2 == 0)
-                {
-                    numDigit = numDigit * 2;
-
-                    /* If doubled digit is ten or higher, sum it's digits */
-                    if (numDigit > 9)
-                    {
-                        /* Doubled digit will never be greater than 18, so modulo 10 plus one */
-                        numDigit = (numDigit % 10) + 1;
-                    }
-                }
-
-            /* Update sum */
-            numSum = numSum + numDigit;
-
-            } // <-- this should close the if statement on line 27 but instead closes the for loop on line 24
-
-            else
-            {
-                /* not a number */
-                return NOT_A_NUMBER;
+                /* Doubled digit will never be greater than 18, so modulo 10 plus one */
+                numDigit = (numDigit % 10) + 1;
             }
         }
 
+        /* Update sum */
+        numSum = numSum + numDigit;
+    }
+
     /* Function output */
     return numSum;
-
-    }
 }
 
 int main(void)
 {
     /* Include variables */
-    char Num[15] = "377669976736261"; //unsure if int64 will work, check compile
+    volatile int i;
+    int Num[] = {5,5,2,7,3,0,5,9,1,9,4,7,9,3,2,5};
     int luhnResult = 0;
     int numCheck = 0;
 
