@@ -12,7 +12,7 @@ int luhn_string (char string[])
 {
 	int length;
 	int numDigit = 0;
-	int numSum = 0;
+	int numSum = -10;
 	int numStep = 0;
 
 	/* Get string length */
@@ -34,7 +34,7 @@ int luhn_string (char string[])
 		for (int i = length = 1; i > 0; i--)
 		{
 			/* Is the digit a number? */
-			if (isdigit (string [i])
+			if (isdigit (string [i]))
 			{
 				/* Convert digit to integer */
 				numDigit = atoi (string [i]);
@@ -57,7 +57,7 @@ int luhn_string (char string[])
 			/* Update sum */
 			numSum = numSum + numDigit;
 			
-			//} // <-- this should close the if statement on line 27 but instead closes the for loop on line 24
+			// } // <-- this should close the if statement on line 27 but instead closes the for loop on line 24
 			
 			else
 			{
