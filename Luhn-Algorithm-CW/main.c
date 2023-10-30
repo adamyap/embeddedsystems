@@ -110,10 +110,13 @@ __interrupt void USCI_A0_ISR(void)
                         }
                     }
                 }
+                else{ // Resets input if invalid character entered
+                   n = 0;
+                   sendString("\n\rInvalid Input\n\r");
+                }
                 break;
             case USCI_UART_UCTXIFG: break;
             case USCI_UART_UCSTTIFG: break;
             case USCI_UART_UCTXCPTIFG: break;
         }
-
 }
