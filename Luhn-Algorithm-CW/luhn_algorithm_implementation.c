@@ -16,8 +16,8 @@ bool luhn_check (int number[]){
     for (i=15;i >= 0; i--){ // Runs a loop to iterate 16 times
         numDigit = number [i]; // Convert digit to integer
         if (i % 2 == 0){ // Double every other digit
-            numDigit = numDigit * 2; // If doubled digit is ten or higher, sum its digits
-            if (numDigit > 9){
+            numDigit = numDigit * 2; 
+            if (numDigit > 9){ // If doubled digit is ten or higher, sum its digits
                 numDigit = (numDigit % 10) + 1; // Doubled digit will never be greater than 18, so modulo 10 plus one
             }
         }
